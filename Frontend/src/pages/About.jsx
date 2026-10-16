@@ -11,51 +11,57 @@ const companyFacts = [
 const services = [
   {
     number: '01',
-    title: 'Intelligent Automation',
+    title: 'Intelligent AI Automation',
     description:
-      'Automate repetitive tasks and business processes with robotic process automation and workflow solutions.',
+      'Automate repetitive tasks and enterprise business processes with robotic process automation and workflow solutions.',
     tags: ['RPA', 'Workflow Automation'],
     href: '/services/process-workflow-page',
+    ctaText: 'Explore Automation',
   },
   {
     number: '02',
-    title: 'AI & Machine Learning',
+    title: 'Agentic AI Systems',
     description:
-      'Explore AI-powered solutions that help businesses improve workflows, work with information, and approach complex tasks.',
-    tags: ['Artificial Intelligence', 'Machine Learning'],
+      'Autonomous, goal-driven AI agents that plan, coordinate tools, and execute multi-step operational tasks safely.',
+    tags: ['Agentic AI', 'AI Agents', 'LLM Tools'],
     href: '/services/agentic-ai-page',
+    ctaText: 'Explore Agentic AI',
   },
   {
     number: '03',
-    title: 'Web Scraping & Data',
+    title: 'Data Engineering & Analytics',
     description:
-      'Collect, structure, and integrate relevant web data to support analysis and business decision-making.',
-    tags: ['Data Extraction', 'Data Processing'],
-    href: '/services/web-scraping-page',
+      'Architect robust data pipelines, ETL workflows, and interactive Power BI executive reporting dashboards.',
+    tags: ['Data Engineering', 'Power BI', 'Dashboards'],
+    href: '/services/data-analytics',
+    ctaText: 'Explore Data Solutions',
   },
   {
     number: '04',
-    title: 'Web & Software Development',
+    title: 'Healthcare Analytics & RCM',
     description:
-      'Build websites, web applications, and software solutions around business requirements and user needs.',
-    tags: ['Web Applications', 'Software'],
-    href: '/services/web-software-development',
+      'Streamline revenue cycle management, pre-submission claims scrubbing, and healthcare administrative data workflows.',
+    tags: ['Healthcare Analytics', 'RCM', 'Billing Workflows'],
+    href: '/services/healthcare-page',
+    ctaText: 'Explore Healthcare',
   },
   {
     number: '05',
-    title: 'Data Analytics',
+    title: 'Custom Software Development',
     description:
-      'Turn business data into meaningful information that helps teams understand processes and make informed decisions.',
-    tags: ['Data Analysis', 'Reporting'],
-    href: '/services/data-analytics',
+      'Build scalable web applications, secure REST APIs, and bespoke digital platforms tailored to your business.',
+    tags: ['Web Applications', 'Custom Software'],
+    href: '/services/web-software-page',
+    ctaText: 'Explore Software',
   },
   {
     number: '06',
-    title: 'Chatbot & AI Integration',
+    title: 'Web Scraping & Extraction',
     description:
-      'Explore conversational interfaces and AI integrations that can support information access and customer interactions.',
-    tags: ['Chatbots', 'AI Integration'],
-    href: '/services/chatbot-integration',
+      'Collect, structure, and integrate relevant web data to support competitive analysis and market decision-making.',
+    tags: ['Data Extraction', 'Web Scraping'],
+    href: '/services/web-scraping-page',
+    ctaText: 'Explore Scraping',
   },
 ]
 
@@ -247,9 +253,9 @@ export default function About() {
             </div>
 
             <h1 className="max-w-3xl font-serif text-4xl leading-[1.12] tracking-tight sm:text-5xl lg:text-[62px]">
-              Transforming workflows through{' '}
-              <span className="text-[#E8590C]">AI-driven automation</span> and
-              analytics.
+              Pioneering the future of{' '}
+              <span className="text-[#E8590C]">intelligent automation</span> and
+              enterprise analytics.
             </h1>
 
             <p className="mt-7 max-w-xl text-base leading-8 text-[#555555] sm:text-lg">
@@ -412,7 +418,7 @@ export default function About() {
                   to={service.href}
                   className="mt-7 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#E8590C] transition hover:gap-3"
                 >
-                  Learn more
+                  {service.ctaText || 'Learn more'}
                   <ArrowIcon className="h-4 w-4" />
                 </Link>
               </article>

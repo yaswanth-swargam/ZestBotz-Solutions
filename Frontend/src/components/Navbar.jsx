@@ -3,19 +3,20 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 const serviceLinks = [
-  ['Process & Workflow Automation', '/services/process-workflow-page'],
+  ['AI Automation & RPA', '/services/process-workflow-page'],
   ['Agentic AI Solutions', '/services/agentic-ai-page'],
-  ['Web Scraping & Data Solutions', '/services/web-scraping-page'],
-  ['Web & Software Development', '/services/web-software-page'],
-  ['Data Analytics & Dashboards', '/services/data-analytics'],
-  ['Chatbot Integration', '/services/chatbot-page'],
-  ['ERP Solutions', '/services/erp-page'],
-  ['Healthcare RCM Data Solutions', '/services/healthcare-page'],
+  ['Data Engineering & Analytics', '/services/data-analytics'],
+  ['Healthcare Analytics & RCM', '/services/healthcare-page'],
+  ['Web & Custom Software', '/services/web-software-page'],
+  ['Web Scraping & Extraction', '/services/web-scraping-page'],
+  ['Chatbot & Conversational AI', '/services/chatbot-page'],
+  ['Enterprise ERP Solutions', '/services/erp-page'],
+  ['All Services Hub', '/services'],
 ]
 
 const workLinks = [
   ['Industries', '/industries'],
-  ['Case Studies', '/work'],
+  ['Case Studies & Work', '/work'],
 ]
 
 function Chevron({ className = '' }) {
@@ -30,6 +31,7 @@ function Chevron({ className = '' }) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      aria-hidden="true"
     >
       <path d="m6 9 6 6 6-6" />
     </svg>
@@ -41,22 +43,22 @@ function Dropdown({ label, items }) {
     <div className="group relative">
       <button
         type="button"
-        className="flex items-center gap-1.5 py-2 text-[15px] text-[#1a1a1a] transition-colors group-hover:text-[#E8590C] group-focus-within:text-[#E8590C]"
+        aria-haspopup="true"
+        className="flex items-center gap-1.5 py-2 text-[15px] font-medium text-[#1a1a1a] transition-colors group-hover:text-[#E8590C] group-focus-within:text-[#E8590C]"
       >
         {label}
         <Chevron className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
       </button>
 
-      {/* pt-3 keeps the hover area connected so the menu doesn't close */}
       <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-        <ul className="min-w-[230px] bg-[#f3f1fb] py-2 shadow-lg">
+        <ul className="min-w-[260px] rounded-xl border border-black/[0.08] bg-[#f9f8fc] py-2.5 shadow-xl">
           {items.map(([text, path]) => (
             <li key={path}>
               <NavLink
                 to={path}
                 className={({ isActive }) =>
-                  `block whitespace-nowrap px-5 py-2.5 text-sm transition-colors hover:text-[#E8590C] ${
-                    isActive ? 'text-[#E8590C]' : 'text-[#1a1a1a]'
+                  `block px-5 py-2.5 text-sm font-medium transition-colors hover:bg-white hover:text-[#E8590C] ${
+                    isActive ? 'font-semibold text-[#E8590C]' : 'text-[#222222]'
                   }`
                 }
               >
@@ -83,30 +85,32 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
     setMobileSection(null)
   }, [pathname])
 
   const topLink = ({ isActive }) =>
-    `text-[15px] transition-colors hover:text-[#E8590C] ${
-      isActive ? 'text-[#E8590C]' : 'text-[#1a1a1a]'
+    `text-[15px] font-medium transition-colors hover:text-[#E8590C] ${
+      isActive ? 'font-semibold text-[#E8590C]' : 'text-[#1a1a1a]'
     }`
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-md transition-shadow duration-200 ${
-        scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.06)]' : ''
+      className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md transition-shadow duration-200 ${
+        scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.06)]' : 'border-b border-black/[0.05]'
       }`}
     >
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10">
-        <Link to="/" className="shrink-0">
-          <img src={logo} alt="ZestBotz" className="w-[120px]" />
+      <nav
+        aria-label="Main Navigation"
+        className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-10"
+      >
+        <Link to="/" className="shrink-0 flex items-center gap-2">
+          <img src={logo} alt="ZestBotz Solutions Logo" width="125" height="38" className="w-[125px] h-auto object-contain" />
         </Link>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-9 lg:flex">
+        {/* Desktop Menu */}
+        <div className="hidden items-center gap-8 lg:flex">
           <Dropdown label="Services" items={serviceLinks} />
           <Dropdown label="Our Work" items={workLinks} />
           <NavLink to="/products" className={topLink}>
@@ -120,18 +124,20 @@ export function Navbar() {
           </NavLink>
           <Link
             to="/contact"
-            className="rounded-full bg-[#11101f] px-7 py-3 text-[15px] font-medium text-white transition-colors hover:bg-[#E8590C]"
+            className="rounded-full bg-[#11101f] px-7 py-3 text-[15px] font-semibold text-white shadow-sm transition hover:bg-[#E8590C]"
           >
             Contact
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle button */}
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setMobileOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-md lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-black/10 text-[#111111] hover:bg-black/5 lg:hidden"
         >
           <svg
             width="24"
@@ -141,6 +147,7 @@ export function Navbar() {
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
+            aria-hidden="true"
           >
             {mobileOpen ? (
               <path d="M6 6l12 12M18 6L6 18" />
@@ -151,38 +158,41 @@ export function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-black/10 bg-white px-6 pb-6 pt-2 lg:hidden">
+        <div
+          id="mobile-navigation"
+          className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-black/10 bg-white px-6 pb-8 pt-3 lg:hidden shadow-2xl"
+        >
           {[
             ['Services', serviceLinks],
             ['Our Work', workLinks],
           ].map(([label, items]) => (
-            <div key={label} className="border-b border-black/10">
+            <div key={label} className="border-b border-black/[0.08]">
               <button
                 type="button"
                 onClick={() =>
                   setMobileSection(mobileSection === label ? null : label)
                 }
-                className="flex w-full items-center justify-between py-4 text-left text-[15px]"
+                className="flex w-full items-center justify-between py-4 text-left text-[15px] font-medium"
               >
                 {label}
                 <Chevron
-                  className={`transition-transform ${
-                    mobileSection === label ? 'rotate-180' : ''
+                  className={`transition-transform duration-200 ${
+                    mobileSection === label ? 'rotate-180 text-[#E8590C]' : ''
                   }`}
                 />
               </button>
 
               {mobileSection === label && (
-                <ul className="mb-3 bg-[#f3f1fb] py-2">
+                <ul className="mb-3 rounded-lg bg-[#f3f1fb] py-2.5">
                   {items.map(([text, path]) => (
                     <li key={path}>
                       <NavLink
                         to={path}
                         className={({ isActive }) =>
                           `block px-4 py-2.5 text-sm ${
-                            isActive ? 'text-[#E8590C]' : 'text-[#1a1a1a]'
+                            isActive ? 'font-semibold text-[#E8590C]' : 'text-[#222222]'
                           }`
                         }
                       >
@@ -195,24 +205,34 @@ export function Navbar() {
             </div>
           ))}
 
+          {/* Corrected: Products was previously missing from mobile navigation */}
+          <NavLink
+            to="/products"
+            className="block border-b border-black/[0.08] py-4 text-[15px] font-medium hover:text-[#E8590C]"
+          >
+            Products
+          </NavLink>
+
           <NavLink
             to="/careers"
-            className="block border-b border-black/10 py-4 text-[15px]"
+            className="block border-b border-black/[0.08] py-4 text-[15px] font-medium hover:text-[#E8590C]"
           >
             Careers
           </NavLink>
+
           <NavLink
             to="/about"
-            className="block border-b border-black/10 py-4 text-[15px]"
+            className="block border-b border-black/[0.08] py-4 text-[15px] font-medium hover:text-[#E8590C]"
           >
             About
           </NavLink>
 
+          {/* Corrected: Changed py-1 to accessible touch target py-3.5 */}
           <Link
             to="/contact"
-            className="mt-3 block rounded-full bg-[#11101f] py-1 text-center text-[15px] font-medium text-white"
+            className="mt-5 block w-full rounded-full bg-[#11101f] py-3.5 text-center text-[15px] font-semibold text-white shadow hover:bg-[#E8590C] transition"
           >
-            Contact
+            Contact Our Team
           </Link>
         </div>
       )}
