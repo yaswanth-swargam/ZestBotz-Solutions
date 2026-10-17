@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 
 const products = [
   {
@@ -83,7 +84,7 @@ export function Products() {
             className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#E8590C] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#c94b08]"
           >
             Explore our products
-            <span aria-hidden="true"></span>
+            <span aria-hidden="true">&darr;</span>
           </a>
 
           <div className="mt-14 grid max-w-3xl grid-cols-3 gap-4 border-t border-black/10 pt-6">
@@ -201,14 +202,14 @@ export function Products() {
                     </div>
 
                     <div className="mt-9 border-t border-black/[0.08] pt-6">
-                      <a
-                        href={`/contact?interest=${encodeURIComponent(product.name)}`}
+                      <Link
+                        to={`/contact?interest=${encodeURIComponent(product.name)}`}
                         className="inline-flex items-center gap-2 text-sm font-semibold transition hover:gap-3"
                         style={{ color: product.accent }}
                       >
                         Enquire about {product.name}
-                        <span aria-hidden="true"></span>
-                      </a>
+                        <span aria-hidden="true">&rarr;</span>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -242,13 +243,13 @@ export function Products() {
             </p>
           </div>
 
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#E8590C]"
           >
             Talk to our team
-            <span aria-hidden="true"></span>
-          </a>
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </section>
     </main>

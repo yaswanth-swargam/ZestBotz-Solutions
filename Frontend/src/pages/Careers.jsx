@@ -210,7 +210,7 @@ export function Careers() {
               className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-white/70 px-7 py-3.5 text-sm font-semibold transition hover:border-[#E8590C] hover:text-[#E8590C]"
             >
               Submit your profile
-              <span aria-hidden="true"></span>
+              <span aria-hidden="true">&rarr;</span>
             </button>
           </div>
 
@@ -356,7 +356,7 @@ export function Careers() {
                     className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-[#111111] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#E8590C] lg:self-center"
                   >
                     Apply for this role
-                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true">&rarr;</span>
                   </button>
                 </div>
               </article>
@@ -627,7 +627,7 @@ export function Careers() {
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#E8590C] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#c94b08] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
                 {status.loading ? 'Submitting application...' : 'Submit application'}
-                {!status.loading && <span aria-hidden="true"></span>}
+                {!status.loading && <span aria-hidden="true">&rarr;</span>}
               </button>
 
               <p className="text-xs leading-6 text-[#777777]">
@@ -666,7 +666,7 @@ export function Careers() {
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#111111] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#E8590C]"
           >
             Share your profile
-            <span aria-hidden="true"></span>
+            <span aria-hidden="true">&rarr;</span>
           </button>
         </div>
       </section>

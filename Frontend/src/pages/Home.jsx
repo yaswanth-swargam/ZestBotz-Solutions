@@ -4,67 +4,75 @@ import { Link } from 'react-router-dom'
 const services = [
   {
     number: '01',
-    title: 'Process & Workflow Automation',
+    title: 'Process & AI Automation',
     description:
-      'Reduce repetitive manual work and streamline business processes through RPA and workflow automation.',
-    tags: ['RPA', 'Business Processes'],
+      'Reduce repetitive manual toil and streamline enterprise operations through RPA and intelligent workflow automation.',
+    tags: ['AI Automation', 'RPA', 'Workflows'],
     href: '/services/process-workflow-page',
+    ctaText: 'Explore AI Automation',
   },
   {
     number: '02',
     title: 'Agentic AI Solutions',
     description:
-      'Explore AI-powered systems that can support multi-step tasks, intelligent workflows, and business operations.',
-    tags: ['AI Agents', 'Intelligent Workflows'],
+      'Deploy autonomous, multi-step AI agents designed to handle research, data orchestration, and smart task execution.',
+    tags: ['Agentic AI', 'AI Agents', 'LLM Tools'],
     href: '/services/agentic-ai-page',
+    ctaText: 'Discover Agentic AI',
   },
   {
     number: '03',
-    title: 'Web Scraping & Data Solutions',
+    title: 'Data Engineering & Pipelines',
     description:
-      'Collect, organize, and process web data to make information more accessible and useful.',
-    tags: ['Web Scraping', 'Data Extraction'],
-    href: '/services/web-scraping-page',
+      'Architect resilient ETL pipelines, automated ingestion, and data warehouses that transform raw inputs into trustworthy data.',
+    tags: ['Data Engineering', 'ETL Pipelines', 'SQL/Python'],
+    href: '/services/data-analytics',
+    ctaText: 'View Data Engineering',
   },
   {
     number: '04',
-    title: 'Web & Software Development',
+    title: 'Healthcare Analytics & RCM',
     description:
-      'Develop websites, web applications, and software experiences around business requirements.',
-    tags: ['Web Development', 'Applications'],
-    href: '/services/web-software-development',
+      'Optimize revenue cycle workflows, automated claims scrubbing, denial resolution, and clinical administrative reporting.',
+    tags: ['Healthcare Analytics', 'RCM', 'Claims Scrubbing'],
+    href: '/services/healthcare-page',
+    ctaText: 'Explore Healthcare Analytics',
   },
   {
     number: '05',
-    title: 'Data Analytics',
+    title: 'Power BI & BI Dashboards',
     description:
-      'Turn business data into meaningful insights that support reporting and informed decisions.',
-    tags: ['Analytics', 'Reporting'],
+      'Turn business data into intuitive, real-time executive Power BI dashboards that guide rapid, informed decisions.',
+    tags: ['Power BI', 'Interactive Dashboards', 'KPIs'],
     href: '/services/data-analytics',
+    ctaText: 'View Power BI Solutions',
   },
   {
     number: '06',
-    title: 'ERP Solutions',
+    title: 'Custom Software Development',
     description:
-      'Explore enterprise resource planning solutions for connected business processes and operations.',
-    tags: ['ERP', 'Business Operations'],
-    href: '/services/erp-page',
+      'Engineer robust full-stack web applications, secure APIs, and bespoke software systems built for scale.',
+    tags: ['Custom Software', 'React & Node', 'Web Apps'],
+    href: '/services/web-software-page',
+    ctaText: 'Explore Custom Software',
   },
   {
     number: '07',
-    title: 'Healthcare RCM',
+    title: 'Web Scraping & Data Extraction',
     description:
-      'Support healthcare revenue cycle workflows involving billing, claims, and related administrative processes.',
-    tags: ['Healthcare', 'Revenue Cycle'],
-    href: '/services/healthcare-rcm-page',
+      'Collect, normalize, and extract public web information into clean datasets for competitive intelligence and research.',
+    tags: ['Web Scraping', 'Data Extraction'],
+    href: '/services/web-scraping-page',
+    ctaText: 'Explore Web Scraping',
   },
   {
     number: '08',
-    title: 'Chatbot Integration',
+    title: 'Chatbot & Conversational AI',
     description:
-      'Create conversational experiences that help users access information and interact with digital services.',
-    tags: ['Chatbots', 'AI Integration'],
-    href: '/services/chatbot-integration',
+      'Integrate 24/7 intelligent chatbots connected to your company knowledge base with seamless human support escalation.',
+    tags: ['Chatbots', 'Conversational AI'],
+    href: '/services/chatbot-page',
+    ctaText: 'Explore Chatbots',
   },
 ]
 
@@ -441,7 +449,7 @@ function Home() {
                   to={service.href}
                   className="mt-7 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#E8590C] transition hover:gap-3"
                 >
-                  Explore service
+                  {service.ctaText || 'Explore service'}
                   <ArrowIcon className="h-4 w-4" />
                 </Link>
               </article>

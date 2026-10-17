@@ -1,7 +1,7 @@
 export const company = {
   name: 'ZestBotz',
   legalName: 'ZestBotz Solutions Pvt Ltd',
-  tagline: 'AI-powered automation and analytics for modern businesses.',
+  tagline: 'Enterprise AI automation, Agentic AI, data engineering, and analytics.',
   founded: '2024',
   city: 'Hyderabad',
   region: 'Telangana',
@@ -10,6 +10,8 @@ export const company = {
   locationFull: 'Hyderabad, Telangana, India',
   phone: '+91 7973645912',
   phoneHref: 'tel:+917973645912',
+  email: 'info@zestbotz.com',
+  emailHref: 'mailto:info@zestbotz.com',
   websiteLabel: 'www.zestbotz.com',
   websiteHref: 'https://www.zestbotz.com',
   youtubeLabel: 'ZestBotz Solutions',
@@ -17,7 +19,7 @@ export const company = {
   industry: 'IT Services and IT Consulting',
   companyType: 'Privately held',
   teamSize: '11 to 50 people',
-  workStyle: 'Remote',
+  workStyle: 'Remote-first',
   copyright: '© 2026 ZestBotz Solutions Pvt Ltd. All rights reserved.',
   social: [
     {
@@ -28,18 +30,14 @@ export const company = {
       name: 'YouTube',
       href: 'https://www.youtube.com/@zestbotzsolutions',
     },
-    {
-      name: 'Instagram',
-      href: null,
-    },
   ],
 }
 
 export const glanceItems = [
   'Founded in 2024',
-  'Based in Hyderabad, India',
-  'Remote-first team',
-  'A team of 11 to 50 people',
+  'Based in Hyderabad, Telangana, India',
+  'Remote-first global engineering team',
+  'Specialized team of 11 to 50 experts',
 ]
 
 export const companyFacts = [
@@ -48,59 +46,63 @@ export const companyFacts = [
   { label: 'Industry', value: 'IT Services and IT Consulting' },
   { label: 'Company type', value: 'Privately held' },
   { label: 'Team size', value: '11 to 50 people' },
-  { label: 'Work style', value: 'Remote' },
+  { label: 'Work style', value: 'Remote-first' },
 ]
 
 export const whyZestbotz = {
-  title: 'Why ZestBotz',
-  text: 'We bring automation, AI, analytics and software together to solve real business problems and make repeat work simple.',
+  title: 'Why Choose ZestBotz',
+  text: 'We unite autonomous Agentic AI, robotic process automation, high-performance data engineering, and modern web software into production-ready business solutions.',
   cards: [
     {
-      title: 'Practical first',
-      text: 'We start with your problem, not with technology. You get what works.',
+      title: 'Practical & Measurable',
+      text: 'We focus on concrete business bottlenecks and quantifiable ROI, not superficial technology trends.',
     },
     {
-      title: 'Many skills, one team',
-      text: 'Automation, AI, data and software all come from one team, so you do not need many vendors.',
+      title: 'Full-Stack Expertise',
+      text: 'From AI automation and Power BI analytics to data pipelines and cloud applications, our unified team handles the entire lifecycle.',
     },
     {
-      title: 'Built around you',
-      text: 'Every solution is shaped to your process and your tools.',
+      title: 'Tailored to Your Stack',
+      text: 'Every solution is architected to seamlessly integrate with your existing workflows, APIs, and enterprise systems.',
     },
     {
-      title: 'Work from anywhere',
-      text: 'Our team works remotely, so we can support you wherever you are.',
+      title: 'Remote-First Agility',
+      text: 'Our agile engineering teams deliver rapid prototyping, continuous integration, and responsive ongoing support.',
     },
   ],
 }
 
 export const aboutContent = {
-  heroHeadline: 'Technology that turns processes into possibilities.',
-  heroText: 'ZestBotz helps businesses work faster and smarter with automation, AI and analytics.',
+  heroHeadline: 'Pioneering the future of enterprise automation and intelligent analytics.',
+  heroText: 'ZestBotz empowers businesses to work faster, reduce manual friction, and make informed decisions with AI automation, Agentic AI, and data engineering.',
   whoWeAre:
-    'ZestBotz Solutions Pvt Ltd is an AI-powered automation and analytics company. We started in 2024 and we are based in Hyderabad, India. Our team works remotely. We help businesses save time, reduce manual work and move toward digital ways of working.',
+    'ZestBotz Solutions Pvt Ltd is an AI-powered automation, data engineering, and analytics company founded in 2024 and headquartered in Hyderabad, Telangana, India. Operating with a high-performing remote-first team, we engineer robust digital solutions that eliminate repetitive work, connect disjointed data, and accelerate digital transformation.',
   whatWeDoBest:
-    'Our team works across process automation, agentic AI, RPA, web scraping, web development and data analytics. We combine these skills to build solutions that match real business needs.',
+    'Our core specialties encompass AI automation & RPA, autonomous Agentic AI systems, enterprise data engineering & pipelines, healthcare analytics & revenue cycle management, Microsoft Power BI intelligence dashboards, and custom software development.',
   focus: [
     {
-      title: 'Automating repeat work',
-      text: 'We take over routine tasks so your team has more time for important work.',
+      title: 'AI Automation & RPA',
+      text: 'Automate repetitive multi-system tasks, approval workflows, and administrative processes.',
     },
     {
-      title: 'Better decisions with data',
-      text: 'We turn your data into clear reports and dashboards.',
+      title: 'Agentic AI Systems',
+      text: 'Deploy goal-driven AI agents with human-in-the-loop oversight to execute complex business tasks.',
     },
     {
-      title: 'AI that helps',
-      text: 'We build AI agents that support your team and finish useful tasks.',
+      title: 'Data Engineering & Pipelines',
+      text: 'Build resilient ETL/ELT pipelines and clean structured data architectures.',
     },
     {
-      title: 'Custom software',
-      text: 'We build websites and software made for your business.',
+      title: 'Healthcare Analytics & RCM',
+      text: 'Optimize revenue cycle management, claim scrubbing, and administrative billing workflows.',
     },
     {
-      title: 'Digital progress',
-      text: 'We help you improve your workflows step by step.',
+      title: 'Power BI Business Intelligence',
+      text: 'Transform complex metrics into intuitive, real-time executive decision dashboards.',
+    },
+    {
+      title: 'Custom Software Development',
+      text: 'Develop scalable, secure web applications and modern APIs tailored to your business needs.',
     },
   ],
 }
@@ -108,50 +110,50 @@ export const aboutContent = {
 export const processSteps = [
   {
     number: '01',
-    title: 'Listen',
-    text: 'We learn about your work, your goals and what slows you down.',
+    title: 'Listen & Discover',
+    text: 'We analyze your workflows, current operational bottlenecks, data sources, and business objectives.',
   },
   {
     number: '02',
-    title: 'Plan',
-    text: 'We choose the simplest solution that solves the problem and share a clear plan.',
+    title: 'Architect & Plan',
+    text: 'We formulate the optimal technology roadmap combining automation, AI, and data architectures.',
   },
   {
     number: '03',
-    title: 'Build',
-    text: 'We build the solution and connect it to the tools you already use.',
+    title: 'Engineer & Integrate',
+    text: 'We develop production-grade solutions with rigorous testing and seamless API integrations.',
   },
   {
     number: '04',
-    title: 'Support',
-    text: 'We test, launch and keep improving it as your needs change.',
+    title: 'Deploy & Support',
+    text: 'We oversee seamless rollout, team onboarding, performance monitoring, and iterative enhancements.',
   },
 ]
 
 export const careerReasons = [
   {
-    title: 'Work on real problems',
-    text: 'Build solutions that businesses use every day.',
+    title: 'High-Impact Projects',
+    text: 'Architect solutions that solve critical enterprise bottlenecks across international industries.',
   },
   {
-    title: 'Learn every day',
-    text: 'Work across automation, AI, data and software.',
+    title: 'Cutting-Edge AI & Data',
+    text: 'Work hands-on with Agentic AI, modern data engineering, RPA frameworks, and cloud stacks.',
   },
   {
-    title: 'Work remotely',
-    text: 'Our team works from anywhere.',
+    title: 'Remote-First Flexibility',
+    text: 'Collaborate with a supportive, results-focused team from wherever you work best.',
   },
 ]
 
 export const homeCopy = {
-  heroHeadline: 'AI-powered automation for modern businesses.',
+  heroHeadline: 'Transforming enterprise workflows through AI automation and intelligent analytics.',
   heroText:
-    'ZestBotz uses automation, agentic AI, data analytics and software to help businesses save time, cut manual work and make better decisions.',
+    'ZestBotz harnesses Agentic AI, robotic process automation, modern data engineering, and Power BI dashboards to help enterprises cut manual toil and unlock rapid growth.',
   whatWeDo:
-    'ZestBotz is an AI-powered automation and analytics company. We help businesses do less manual work. We use AI agents, robotic process automation (RPA) and smart workflows to make daily tasks faster. We also build websites, software and dashboards that fit the way your business works.',
-  servicesIntro: 'Everything you need to automate work, use your data and build the right software.',
-  howWeWorkIntro: 'A simple process from your first call to a working solution.',
-  industriesTeaser: 'We work with healthcare teams, business operations teams and technology companies.',
+    'ZestBotz is an AI automation and data engineering firm based in Hyderabad, India. We empower businesses to eliminate tedious manual tasks through AI agents, RPA, and smart workflow orchestrations. We also engineer custom web software, resilient data pipelines, and executive dashboards designed around how your business operates.',
+  servicesIntro: 'Everything your business needs to automate repetitive processes, build data pipelines, and develop custom software.',
+  howWeWorkIntro: 'A structured, transparent delivery methodology from initial discovery to production deployment.',
+  industriesTeaser: 'Partnering across healthcare, enterprise operations, finance, and technology-driven companies.',
   finalCtaHeadline: 'Ready to automate what slows your business down?',
-  finalCtaText: 'Tell us about your process, problem or idea. We will help you find a practical solution.',
+  finalCtaText: 'Share your process challenge or project vision. Our engineering team will formulate a practical, high-ROI solution.',
 }

@@ -18,7 +18,7 @@ const industries = [
     services: [
       {
         label: 'Healthcare RCM',
-        href: '/services/healthcare-rcm-page',
+        href: '/services/healthcare-page',
       },
       {
         label: 'Process Automation',
@@ -84,7 +84,7 @@ const industries = [
       },
       {
         label: 'Chatbot Integration',
-        href: '/services/chatbot-integration',
+        href: '/services/chatbot-page',
       },
     ],
     visual: 'technology',
@@ -470,7 +470,7 @@ export default function Industries() {
                 title: 'Software development',
                 description:
                   'Build applications and digital tools around requirements.',
-                href: '/services/web-software-development',
+                href: '/services/web-software-page',
               },
             ].map((item) => (
               <Link

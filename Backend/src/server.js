@@ -10,11 +10,43 @@ import careerRoutes from './routes/careerRoutes.js'
 const app = express()
 const PORT = Number(process.env.PORT) || 5000
 
-app.use(helmet())
+// Security headers
+app.use(
+  helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+  })
+)
+
+// CORS configuration supporting local dev, preview URLs, and production domains
+const configuredOrigins = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean)
+
+const allowedOrigins = new Set([
+  'http://localhost:5173',
+  'http://localhost:4173',
+  'http://localhost:3000',
+  'https://zestbotz-solutions.vercel.app',
+  ...configuredOrigins,
+])
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
+      if (!origin) return callback(null, true)
+
+      if (
+        allowedOrigins.has(origin) ||
+        /^https:\/\/zestbotz[a-zA-Z0-9-]*\.vercel\.app$/.test(origin)
+      ) {
+        return callback(null, true)
+      }
+
+      callback(new Error(`CORS blocked for origin: ${origin}`))
+    },
+    credentials: true,
   })
 )
 
