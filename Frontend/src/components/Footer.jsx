@@ -43,6 +43,15 @@ function SocialIcon({ name }) {
       </svg>
     )
 
+  if (n.includes('instagram'))
+    return (
+      <svg {...props}>
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    )
+
   if (n.includes('youtube'))
     return (
       <svg {...props}>
@@ -168,6 +177,26 @@ export function Footer() {
                 ))}
               </div>
             </div>
+
+            {/* Discovery & Consultations Callout (Moved to middle) */}
+            <div className="mt-6 rounded-2xl border border-[#FF631C]/25 bg-[#FF631C]/[0.05] p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#FF631C] flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-[#FF631C]" />
+                  Discovery & Consultations
+                </p>
+                <p className="mt-1 text-xs text-gray-600 leading-relaxed">
+                  Discuss an automation, data pipeline, or custom software requirement with our team.
+                </p>
+              </div>
+              <Link
+                to="/book-a-call"
+                className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-[#FF631C] px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-[#e05010]"
+              >
+                <span>Schedule a 30-min discovery call</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
 
           {/* Company & Quick Links */}
@@ -187,19 +216,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-
-            <div className="mt-6 rounded-xl border border-[#FF631C]/20 bg-[#FF631C]/[0.04] p-3.5">
-              <p className="text-xs font-semibold text-gray-900">Discovery & Consultations</p>
-              <p className="mt-1 text-[11.5px] text-gray-600 leading-relaxed">
-                Discuss an automation, data pipeline, or custom software requirement with our team.
-              </p>
-              <Link
-                to="/book-a-call"
-                className="mt-2.5 inline-block text-xs font-semibold text-[#FF631C] hover:underline"
-              >
-                Schedule a 30-min discovery call →
-              </Link>
-            </div>
           </div>
         </div>
 

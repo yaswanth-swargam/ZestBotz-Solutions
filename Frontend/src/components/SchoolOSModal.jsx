@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config/api'
 import React, { useState, useEffect } from 'react'
 import {
   X,
@@ -84,7 +85,7 @@ export function SchoolOSModal({ isOpen, onClose, initialTab = 'overview' }) {
     }
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || ''
+      const apiUrl = API_BASE_URL
       const res = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config/api'
 
 import { useRef, useState } from 'react'
 
@@ -132,7 +133,7 @@ export function Careers() {
     })
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+      const apiUrl = API_BASE_URL
 
       const response = await fetch(`${apiUrl}/api/careers/apply`, {
         method: 'POST',

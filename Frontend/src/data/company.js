@@ -57,6 +57,8 @@ export const company = {
   websiteHref: 'https://www.zestbotz.com',
   youtubeLabel: 'ZestBotz Solutions',
   youtubeHref: 'https://www.youtube.com/@zestbotzsolutions',
+  instagramLabel: '@zestbotz_solutions',
+  instagramHref: 'https://www.instagram.com/zestbotz_solutions',
   industry: 'IT Services and IT Consulting',
   companyType: 'Privately held',
   workStyle: 'Remote-first',
@@ -67,11 +69,38 @@ export const company = {
       href: 'https://www.linkedin.com/company/zestbotz',
     },
     {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/zestbotz_solutions',
+    },
+    {
       name: 'YouTube',
       href: 'https://www.youtube.com/@zestbotzsolutions',
     },
   ],
 }
+
+export const trustedCompanies = [
+  {
+    name: 'Ktrips',
+    category: 'Travel & Mobility Solutions',
+  },
+  {
+    name: 'Happy Air Travels',
+    category: 'Aviation & Global Ticketing',
+  },
+  {
+    name: 'Rapid Group',
+    category: 'Logistics & Industrial Services',
+  },
+  {
+    name: 'Raman Schools',
+    category: 'Education & Institutional Operations',
+  },
+  {
+    name: 'Revantage',
+    category: 'Enterprise Growth & Analytics',
+  },
+]
 
 export const servicesList = [
   {

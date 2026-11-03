@@ -1,7 +1,8 @@
+import { API_BASE_URL } from '../config/api'
 
 import { useState, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
-import { School, Sparkles, CheckCircle2 } from 'lucide-react'
+import { Camera,  School, Sparkles, CheckCircle2, Instagram  } from 'lucide-react'
 
 const interests = [
   'SchoolOS (School Operations Platform)',
@@ -83,7 +84,7 @@ export function Contact() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/contact`,
+        `${API_BASE_URL}/api/contact`,
         {
           method: 'POST',
           headers: {
@@ -383,6 +384,23 @@ export function Contact() {
                     className="mt-1 inline-block text-sm text-[#666666] transition hover:text-[#E8590C]"
                   >
                     ZestBotz Solutions
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8590C]/10 text-[#E8590C]">
+                  <Camera className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold">Instagram</h3>
+                  <a
+                    href="https://www.instagram.com/zestbotz_solutions"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-1 inline-block text-sm text-[#666666] transition hover:text-[#E8590C]"
+                  >
+                    @zestbotz_solutions
                   </a>
                 </div>
               </div>

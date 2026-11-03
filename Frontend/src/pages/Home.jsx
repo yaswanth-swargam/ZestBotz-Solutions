@@ -1,7 +1,98 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { servicesList, targetIndustries, productList, company } from '../data/company.js'
+import { servicesList, targetIndustries, productList, company, trustedCompanies } from '../data/company.js'
 import { FAQSection } from '../components/FAQSection'
+
+function TrustedBySection() {
+  const companies = [
+    {
+      name: 'Ktrips',
+      category: 'Travel & Mobility Solutions',
+      icon: (
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Happy Air Travels',
+      category: 'Aviation & Global Ticketing',
+      icon: (
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Rapid Group',
+      category: 'Logistics & Industrial Services',
+      icon: (
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Raman Schools',
+      category: 'Education & Institutional Ops',
+      icon: (
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      ),
+    },
+    {
+      name: 'Revantage',
+      category: 'Enterprise Growth & Analytics',
+      icon: (
+        <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2 2 7l10 5 10-5-10-5Z" />
+          <path d="m2 17 10 5 10-5" />
+          <path d="m2 12 10 5 10-5" />
+        </svg>
+      ),
+    },
+  ]
+
+  return (
+    <section className="border-y border-black/[0.06] dark:border-white/10 bg-[#FAFAFC] dark:bg-[#0D0D11] py-14">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+        <div className="text-center max-w-3xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#FF631C]">
+            Trusted by Industry Leaders
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold sm:text-3xl text-[#0B0B0D] dark:text-white">
+            Trusted by forward-thinking companies & institutions
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+            Powering intelligent automation, seamless data integration, and high-impact operations across industries.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {companies.map((co) => (
+            <div
+              key={co.name}
+              className="group relative flex flex-col items-center justify-center rounded-2xl border border-black/[0.06] dark:border-white/10 bg-white dark:bg-[#141418] p-6 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#FF631C]/40 hover:shadow-lg hover:shadow-orange-500/5"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF631C]/10 text-[#FF631C] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#FF631C] group-hover:text-white">
+                {co.icon}
+              </div>
+              <h3 className="mt-4 text-base font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-[#FF631C] transition-colors">
+                {co.name}
+              </h3>
+              <p className="mt-1 text-[11.5px] font-medium text-gray-500 dark:text-gray-400">
+                {co.category}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function ArrowIcon({ className = 'h-4 w-4' }) {
   return (
@@ -177,6 +268,9 @@ export function Home() {
           <HeroWorkflowVisual />
         </div>
       </section>
+
+      {/* TRUSTED BY COMPANIES */}
+      <TrustedBySection />
 
       {/* 2. THREE CENTRAL PROMISES */}
       <section className="border-y border-black/[0.06] dark:border-white/10 bg-white dark:bg-[#0B0B0D] py-16 sm:py-20">
@@ -488,24 +582,24 @@ export function Home() {
       <section className="bg-white dark:bg-[#0B0B0D] py-16 sm:py-20 lg:py-24 border-t border-black/[0.06] dark:border-white/10">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
           <div
-            className="rounded-[2.2rem] bg-[#0B0B0D] p-8 sm:p-14 lg:p-16 text-white relative overflow-hidden"
+            className="rounded-[2.2rem] bg-[#0B0B0D] p-8 sm:p-14 lg:p-16 text-white relative overflow-hidden text-center"
             style={{
               backgroundImage:
-                'radial-gradient(ellipse at 5% 10%, rgba(255,99,28,0.25), transparent 35%), radial-gradient(ellipse at 95% 90%, rgba(245,161,108,0.12), transparent 36%)',
+                'radial-gradient(ellipse at 50% 15%, rgba(255,99,28,0.25), transparent 50%), radial-gradient(ellipse at 50% 85%, rgba(245,161,108,0.12), transparent 50%)',
             }}
           >
-            <div className="max-w-2xl">
+            <div className="mx-auto max-w-3xl flex flex-col items-center">
               <SectionLabel>Let's Collaborate</SectionLabel>
               <h2 className="mt-2 text-3xl font-semibold sm:text-4xl lg:text-[46px] leading-tight">
                 Have a workflow to automate or data to connect?
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed">
+              <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl">
                 Tell us about your business challenge. We evaluate feasibility and design practical solutions that simplify your daily operations.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link
                   to="/book-a-call"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#FF631C] px-7 py-3.5 text-sm font-semibold text-white hover:bg-[#e05010] transition"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#FF631C] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-orange-500/20 hover:bg-[#e05010] transition"
                 >
                   Book a Discovery Call
                   <ArrowIcon />

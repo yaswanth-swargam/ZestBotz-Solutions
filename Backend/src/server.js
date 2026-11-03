@@ -1,4 +1,3 @@
-
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
@@ -12,9 +11,51 @@ import zohoAuthRoutes from './routes/zohoAuthRoutes.js'
 import transporter from './config/mailer.js'
 const app = express()
 const PORT = Number(process.env.PORT) || 5000
-app.set('trust proxy', 1)
+const isProd = process.env.NODE_ENV === 'production'
 
-app.use(helmet())
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", 'data:', 'https:'],
+        connectSrc: ["'self'"],
+        fontSrc: ["'self'", 'data:'],
+        objectSrc: ["'none'"],
+        frameAncestors: ["'none'"],
+        baseUri: ["'self'"],
+        formAction: ["'self'"],
+      },
+    },
+    hsts: {
+      maxAge: 31536000,
+      includeSubDomains: true,
+      preload: false,
+    },
+    referrerPolicy: {
+      policy: 'strict-origin-when-cross-origin',
+    },
+  })
+)
+
+// Permissions-Policy header for least-privilege defense
+app.use((_req, res, next) => {
+  res.setHeader(
+    'Permissions-Policy',
+    'camera=(), microphone=(), geolocation=(), browsing-topics=(), payment=(), usb=(), vr=(), interest-cohort=()'
+  )
+  next()
+})
+
+const allowedOrigins = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(',').map((origin) => origin.trim())
+  : [
+      'https://zestbotz.com',
+      'https://www.zestbotz.com',
+      ...(!isProd ? ['http://localhost:5173', 'http://localhost:3000'] : []),
+    ]
 
 // app.use(
 //   cors({
@@ -74,7 +115,7 @@ const bookingLimiter = rateLimit({
   legacyHeaders: false,
   message: {
     success: false,
-    message: 'Too many booking submissions. Please try again later.',
+    message: 'Too many bookings attempted. Please try again later.',
   },
 })
 
@@ -107,15 +148,18 @@ app.get('/api/health', (_req, res) => {
   res.json({
     success: true,
     message: 'ZestBotz backend is running.',
+    timestamp: new Date().toISOString(),
   })
-})
+}
+
+app.get('/api/health', healthHandler)
+app.get('/health', healthHandler)
 
 app.use('/api/contact', formLimiter, contactRoutes)
 app.use('/api/careers', formLimiter, careerRoutes)
 
-// Apply the appropriate limiter before the booking router.
 app.use('/api/bookings', (req, res, next) => {
-  if (req.method === 'GET' && req.path === '/availability') {
+  if (req.method === 'GET' && (req.path === '/availability' || req.path === '/available-slots')) {
     return availabilityLimiter(req, res, next)
   }
 
@@ -138,5 +182,5 @@ app.use((err, _req, res, _next) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Backend running at http://localhost:${PORT}`)
+  console.log(`Backend service listening on port ${PORT}`)
 })

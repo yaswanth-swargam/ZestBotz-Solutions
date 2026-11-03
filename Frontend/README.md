@@ -1,6 +1,6 @@
 # ZestBotz Solutions — Frontend
 
-The frontend for the ZestBotz Solutions website, built with React and Vite.
+The frontend for the ZestBotz Solutions website, built with React, Vite, and Tailwind CSS.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ From the repository root, open a terminal and run:
 
 ```bash
 cd Frontend
-npm ci
+npm install
 npm run dev
 ```
 
@@ -36,7 +36,7 @@ Run these from the `Frontend` directory:
 
 ```bash
 cd Frontend
-npm ci
+npm install
 npm run build
 ```
 
