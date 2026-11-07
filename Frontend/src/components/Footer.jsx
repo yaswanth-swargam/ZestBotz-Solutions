@@ -22,7 +22,6 @@ const productLinks = [
   ['ZestRCM Analytics', '/products'],
 ]
 
-const instagramUrl = 'https://www.instagram.com/zestbotz_solutions/'
 
 function SocialIcon({ name }) {
   const n = name.toLowerCase()
@@ -105,13 +104,13 @@ export function Footer() {
             <Link to="/" aria-label="ZestBotz home" className="flex items-center gap-2.5">
               <img
                 src={logo}
-                alt="ZestBotz Logo"
+                alt="ZestBotz Solutions Logo"
                 className="relative -left-3 block dark:hidden h-12 w-auto object-contain"
               />
 
               <img
                 src={logoWhite}
-                alt="ZestBotz Logo"
+                alt="ZestBotz Solutions Logo"
                 className="relative -left-3 hidden dark:block h-12 w-auto object-contain"
               />
             </Link>
@@ -148,18 +147,6 @@ export function Footer() {
                   <SocialIcon name={item.name} />
                 </a>
               ))}
-
-              {/* Instagram */}
-              <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram - ZestBotz Solutions"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/[0.08] bg-white text-gray-700 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#FF631C] hover:bg-[#FF631C] hover:text-white"
-              >
-                <SocialIcon name="Instagram" />
-              </a>
-
             </div>
           </div>
 

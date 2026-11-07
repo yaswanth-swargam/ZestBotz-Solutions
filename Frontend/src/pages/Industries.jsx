@@ -45,7 +45,6 @@ function SectionLabel({ children }) {
 
 export function Industries() {
   useEffect(() => {
-    document.title = 'Target Industries & Sectors | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

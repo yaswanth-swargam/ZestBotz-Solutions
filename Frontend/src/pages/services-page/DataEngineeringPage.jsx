@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function DataEngineeringPage() {
   useEffect(() => {
-    document.title = 'Data Engineering & ETL/ELT Pipelines | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

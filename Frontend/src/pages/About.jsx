@@ -31,7 +31,6 @@ function SectionLabel({ children }) {
 
 export function About() {
   useEffect(() => {
-    document.title = 'About & Founder | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

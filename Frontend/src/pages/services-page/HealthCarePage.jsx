@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function HealthCarePage() {
   useEffect(() => {
-    document.title = 'Healthcare Analytics & Revenue Cycle Management (RCM) | ZestBotz'
     window.scrollTo(0, 0)
   }, [])
 

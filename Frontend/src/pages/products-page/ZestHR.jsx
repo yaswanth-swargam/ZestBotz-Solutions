@@ -463,33 +463,7 @@ function FAQItem({ question, answer, open, onClick }) {
 export function ZestHR() {
   const [openFaq, setOpenFaq] = useState(0)
 
-  useEffect(() => {
-    const previousTitle = document.title
-    const descriptionText =
-      'Explore ZestHR, a proposed HR management product concept from ZestBotz focused on employee information, attendance, leave management, onboarding, and HR workflows.'
 
-    let description = document.querySelector('meta[name="description"]')
-    const previousDescription = description?.getAttribute('content')
-
-    if (!description) {
-      description = document.createElement('meta')
-      description.name = 'description'
-      document.head.appendChild(description)
-    }
-
-    description.content = descriptionText
-    document.title = 'ZestHR | HR Management Product Concept | ZestBotz'
-
-    return () => {
-      document.title = previousTitle
-
-      if (previousDescription) {
-        description.content = previousDescription
-      } else {
-        description.remove()
-      }
-    }
-  }, [])
 
   return (
     <main className="overflow-hidden bg-white dark:bg-[#0B0B0D] text-[#171717] dark:text-gray-100">

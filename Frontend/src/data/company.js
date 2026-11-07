@@ -1,5 +1,5 @@
 export const company = {
-  name: 'ZestBotz',
+  name: 'ZestBotz Solutions',
   legalName: 'ZestBotz Solutions Pvt Ltd',
   founder: 'Anil Kumar M.',
   positioning: 'Bridging AI Capabilities with Business Operations',
@@ -69,6 +69,10 @@ export const company = {
     {
       name: 'YouTube',
       href: 'https://www.youtube.com/@zestbotzsolutions',
+    },
+    {
+      name: 'Instagram',
+      href: 'https://www.instagram.com/zestbotz_solutions/',
     },
   ],
 }

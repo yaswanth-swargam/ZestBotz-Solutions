@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function ProcessWorkflowAutomationPage() {
   useEffect(() => {
-    document.title = 'Python & RPA Automation | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

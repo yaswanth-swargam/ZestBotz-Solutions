@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function AgenticAIPage() {
   useEffect(() => {
-    document.title = 'AI Agents & Intelligent Workflow Automation | ZestBotz'
     window.scrollTo(0, 0)
   }, [])
 

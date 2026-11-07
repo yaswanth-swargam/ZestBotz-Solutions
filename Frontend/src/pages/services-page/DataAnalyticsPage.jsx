@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function DataAnalyticsPage() {
   useEffect(() => {
-    document.title = 'Business Intelligence & Power BI Analytics | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

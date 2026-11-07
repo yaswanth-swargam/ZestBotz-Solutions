@@ -21,7 +21,6 @@ function ArrowIcon({ className = 'h-4 w-4' }) {
 
 export function Services() {
   useEffect(() => {
-    document.title = 'Services | ZestBotz Solutions - Intelligent Automation, Data & Software'
     window.scrollTo(0, 0)
   }, [])
 

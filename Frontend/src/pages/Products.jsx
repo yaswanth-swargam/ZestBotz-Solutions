@@ -86,7 +86,6 @@ export function Products() {
   const [modalInitialTab, setModalInitialTab] = useState('overview')
 
   useEffect(() => {
-    document.title = 'Product Portfolio | ZestBotz Solutions'
     window.scrollTo(0, 0)
     const enquireParam = searchParams.get('enquire')
     const modalParam = searchParams.get('modal')

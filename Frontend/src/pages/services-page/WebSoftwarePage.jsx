@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function WebSoftwarePage() {
   useEffect(() => {
-    document.title = 'Custom Software & SaaS Development | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

@@ -1,0 +1,9 @@
+# robots.txt for https://www.zestbotz.com
+User-agent: *
+Allow: /
+
+# Disallow API and private endpoints
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.zestbotz.com/sitemap.xml

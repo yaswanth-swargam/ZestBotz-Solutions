@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function DocumentAutomationPage() {
   useEffect(() => {
-    document.title = 'Document Processing & Business Process Automation | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

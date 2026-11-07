@@ -109,7 +109,6 @@ function HeroWorkflowVisual() {
 
 export function Home() {
   useEffect(() => {
-    document.title = 'ZestBotz | Bridging AI Capabilities with Business Operations'
     window.scrollTo(0, 0)
   }, [])
 

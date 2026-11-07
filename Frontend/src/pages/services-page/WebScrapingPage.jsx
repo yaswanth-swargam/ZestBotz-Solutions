@@ -37,7 +37,6 @@ function CheckIcon() {
 
 export function WebScrapingPage() {
   useEffect(() => {
-    document.title = 'Web Scraping & Business Data Extraction | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 

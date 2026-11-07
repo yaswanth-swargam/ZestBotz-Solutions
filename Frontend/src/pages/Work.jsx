@@ -29,7 +29,6 @@ function SectionLabel({ children }) {
 
 export function Work() {
   useEffect(() => {
-    document.title = 'Our Work & Case Studies | ZestBotz Solutions'
     window.scrollTo(0, 0)
   }, [])
 
