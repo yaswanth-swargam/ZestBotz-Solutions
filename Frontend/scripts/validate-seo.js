@@ -56,13 +56,36 @@ async function validate() {
   assert(!sitemapContent.includes('<loc>http://'), 'sitemap.xml contains NO unencrypted http URLs')
 
   // 3. Static Assets Validation
-  console.log('\nTesting static branding assets:')
+  console.log('\nTesting static branding and favicon assets:')
   const logoPath = path.join(distDir, 'logo.png')
   const ogImagePath = path.join(distDir, 'og-image.png')
   const faviconPath = path.join(distDir, 'favicon.png')
+  const faviconIcoPath = path.join(distDir, 'favicon.ico')
+  const favicon48Path = path.join(distDir, 'favicon-48x48.png')
+  const favicon96Path = path.join(distDir, 'favicon-96x96.png')
+  const favicon192Path = path.join(distDir, 'favicon-192x192.png')
+  const favicon512Path = path.join(distDir, 'favicon-512x512.png')
+  const appleTouchPath = path.join(distDir, 'apple-touch-icon.png')
+  const manifestPath = path.join(distDir, 'site.webmanifest')
+
   assert(fs.existsSync(logoPath) && fs.statSync(logoPath).size > 0, 'dist/logo.png is present and non-empty')
   assert(fs.existsSync(ogImagePath) && fs.statSync(ogImagePath).size > 0, 'dist/og-image.png is present and non-empty')
   assert(fs.existsSync(faviconPath) && fs.statSync(faviconPath).size > 0, 'dist/favicon.png is present and non-empty')
+  assert(fs.existsSync(faviconIcoPath) && fs.statSync(faviconIcoPath).size > 0, 'dist/favicon.ico is present and non-empty')
+  assert(fs.existsSync(favicon48Path) && fs.statSync(favicon48Path).size > 0, 'dist/favicon-48x48.png is present and non-empty')
+  assert(fs.existsSync(favicon96Path) && fs.statSync(favicon96Path).size > 0, 'dist/favicon-96x96.png is present and non-empty')
+  assert(fs.existsSync(favicon192Path) && fs.statSync(favicon192Path).size > 0, 'dist/favicon-192x192.png is present and non-empty')
+  assert(fs.existsSync(favicon512Path) && fs.statSync(favicon512Path).size > 0, 'dist/favicon-512x512.png is present and non-empty')
+  assert(fs.existsSync(appleTouchPath) && fs.statSync(appleTouchPath).size > 0, 'dist/apple-touch-icon.png is present and non-empty')
+  assert(fs.existsSync(manifestPath) && fs.statSync(manifestPath).size > 0, 'dist/site.webmanifest is present and non-empty')
+
+  // Check favicon tags in index.html
+  const rootHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8')
+  assert(rootHtml.includes('href="/favicon.ico"'), 'index.html links to /favicon.ico')
+  assert(rootHtml.includes('href="/favicon-48x48.png"'), 'index.html links to /favicon-48x48.png')
+  assert(rootHtml.includes('href="/favicon.png"'), 'index.html links to stable /favicon.png')
+  assert(rootHtml.includes('href="/apple-touch-icon.png"'), 'index.html links to /apple-touch-icon.png')
+  assert(rootHtml.includes('href="/site.webmanifest"'), 'index.html links to /site.webmanifest')
 
   // 4. Page-Level Metadata & Schema Validation
   console.log('\nTesting Page-Level Metadata & Schema for all 20 Primary Routes:')

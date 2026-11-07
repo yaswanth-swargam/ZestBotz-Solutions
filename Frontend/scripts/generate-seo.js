@@ -93,8 +93,21 @@ async function run() {
 
   const baseTemplate = fs.readFileSync(templatePath, 'utf8')
 
-  // Copy static SEO assets if missing in dist
-  const assetsToCopy = ['sitemap.xml', 'robots.txt', 'logo.png', 'og-image.png']
+  // Copy static SEO & favicon assets if missing or updated in dist
+  const assetsToCopy = [
+    'sitemap.xml',
+    'robots.txt',
+    'logo.png',
+    'og-image.png',
+    'favicon.ico',
+    'favicon.png',
+    'favicon-48x48.png',
+    'favicon-96x96.png',
+    'favicon-192x192.png',
+    'favicon-512x512.png',
+    'apple-touch-icon.png',
+    'site.webmanifest',
+  ]
   for (const asset of assetsToCopy) {
     const src = path.join(publicDir, asset)
     const dest = path.join(distDir, asset)
