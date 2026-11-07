@@ -9,24 +9,19 @@ import contactRoutes from './routes/contactRoutes.js'
 import careerRoutes from './routes/careerRoutes.js'
 import bookingRoutes from './routes/bookingRoutes.js'
 import zohoAuthRoutes from './routes/zohoAuthRoutes.js'
-import transporter from './config/mailer.js'
+
 const app = express()
 const PORT = Number(process.env.PORT) || 5000
+
 app.set('trust proxy', 1)
 
 app.use(helmet())
-
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_URL || 'http://localhost:5173',
-//   })
-// )
 
 const allowedOrigins = [
   'https://zest-botz-solutions-one.vercel.app',
   'http://localhost:5173',
   'https://zestbotz.com',
-  'https://www.zestbotz.com'
+  'https://www.zestbotz.com',
 ]
 
 app.use(
@@ -80,31 +75,6 @@ const bookingLimiter = rateLimit({
   },
 })
 
-
-app.get('/api/test-email', async (_req, res) => {
-  try {
-    await transporter.verify()
-
-    res.json({
-      success: true,
-      message: 'SMTP connection verified successfully.',
-    })
-  } catch (error) {
-    console.error('SMTP verification failed:', {
-      message: error.message,
-      code: error.code,
-      command: error.command,
-      responseCode: error.responseCode,
-    })
-
-    res.status(500).json({
-      success: false,
-      message: 'SMTP verification failed.',
-      code: error.code,
-    })
-  }
-})
-
 app.get('/api/health', (_req, res) => {
   res.json({
     success: true,
@@ -115,18 +85,21 @@ app.get('/api/health', (_req, res) => {
 app.use('/api/contact', formLimiter, contactRoutes)
 app.use('/api/careers', formLimiter, careerRoutes)
 
-// Apply the appropriate limiter before the booking router.
-app.use('/api/bookings', (req, res, next) => {
-  if (req.method === 'GET' && req.path === '/availability') {
-    return availabilityLimiter(req, res, next)
-  }
+app.use(
+  '/api/bookings',
+  (req, res, next) => {
+    if (req.method === 'GET' && req.path === '/availability') {
+      return availabilityLimiter(req, res, next)
+    }
 
-  if (req.method === 'POST' && req.path === '/') {
-    return bookingLimiter(req, res, next)
-  }
+    if (req.method === 'POST' && req.path === '/') {
+      return bookingLimiter(req, res, next)
+    }
 
-  return next()
-}, bookingRoutes)
+    return next()
+  },
+  bookingRoutes
+)
 
 app.use('/api/zoho', zohoAuthRoutes)
 
